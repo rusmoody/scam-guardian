@@ -1,0 +1,15 @@
+# Статический сайт без сборки. index.html лежит в корне, поэтому
+# Netlify находит его сам — редиректы не нужны.
+#
+# Датасеты в /data переиспользуются ботом: единственный источник
+# правды, без дублей.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'"
