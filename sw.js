@@ -10,7 +10,7 @@
  * Версию поднимаем при любом изменении файлов ниже.
  */
 
-const VERSION = 'guardian-v1';
+const VERSION = 'guardian-v2';
 
 const SHELL = [
   '/',
