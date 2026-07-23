@@ -149,7 +149,11 @@
         "small deposit to unlock",
         "insurance payment required",
         "cover the shipping cost",
-        "to claim your prize"
+        "to claim your prize",
+        "unlock your withdrawal",
+        "verification fee to withdraw",
+        "pay tax before withdrawal",
+        "release your funds"
       ]
     },
     {
@@ -225,6 +229,147 @@
         "i'll leak your",
         "i will share your photos",
         "unless you pay"
+      ]
+    },
+    {
+      "id": "manufactured_hype",
+      "title": "Manufactured activity and rankings",
+      "explanation": "Leaderboards, prize tallies and winner announcements from an account you did not subscribe to are engagement bait. The numbers are decoration; the point is to make the operation look busy and legitimate.",
+      "severity": 0.3,
+      "markers": [
+        "took the crown",
+        "the podium",
+        "this week's winner",
+        "final standings",
+        "boosts logged",
+        "leaderboard",
+        "top holders",
+        "winners announced",
+        "climb the ranks",
+        "claim your spot",
+        "current standings",
+        "across the network this week",
+        "weekly rankings"
+      ]
+    },
+    {
+      "id": "dm_funnel",
+      "title": "Pushing you into a private chat",
+      "explanation": "An unsolicited message that ends by telling you to write privately is usually a funnel. The actual pitch happens where nobody else can see it or warn you.",
+      "severity": 0.3,
+      "markers": [
+        "dm ",
+        "dms",
+        "message me privately",
+        "write me privately",
+        "contact me privately",
+        "for details message",
+        "to claim message"
+      ]
+    },
+    {
+      "id": "task_scam",
+      "title": "Paid tasks that need a deposit",
+      "explanation": "Gamified work — liking videos, rating products, 'boosting' listings — with a balance that grows on screen. Eventually you are asked to deposit your own money to unlock or withdraw it. Real employers never make you pay to get paid.",
+      "severity": 0.55,
+      "markers": [
+        "product boosting",
+        "optimization task",
+        "optimisation task",
+        "complete simple tasks",
+        "rate products",
+        "rate product images",
+        "like videos",
+        "boost listings",
+        "app boosting",
+        "no experience required",
+        "daily commission",
+        "commission per task",
+        "vip task",
+        "unlock more tasks",
+        "deposit to withdraw",
+        "negative balance",
+        "reply yes if interested",
+        "reply interested",
+        "part-time online work",
+        "earn daily from home",
+        "online assessor",
+        "free paid training"
+      ]
+    },
+    {
+      "id": "new_number_claim",
+      "title": "A family member with a new number",
+      "explanation": "The most successful scam against parents: a message claiming to be your child on a borrowed or replaced phone, followed by a money problem. If it really is them, calling their old number settles it in ten seconds — and if it is not, that call is the whole defence.",
+      "severity": 0.45,
+      "markers": [
+        "this is my new number",
+        "my new number",
+        "i broke my phone",
+        "i smashed my phone",
+        "my phone is broken",
+        "phone got damaged",
+        "using a friend's phone",
+        "on a friend's phone",
+        "borrowed a phone",
+        "save this number",
+        "delete my old number",
+        "can't access my bank",
+        "cannot access my bank"
+      ]
+    },
+    {
+      "id": "wrong_number_opener",
+      "title": "A stranger opening a conversation",
+      "explanation": "Long investment frauds start with a friendly message that contains no pitch at all — a wrong number, a half-remembered meeting. The only goal is to get you replying. There is no cost to not answering a stranger.",
+      "severity": 0.3,
+      "markers": [
+        "wrong number",
+        "do you remember me",
+        "is this still your number",
+        "long time no see",
+        "sent this to the wrong person",
+        "i think i have the wrong",
+        "we met at the"
+      ]
+    },
+    {
+      "id": "delivery_toll",
+      "title": "A package or toll that needs paying",
+      "explanation": "Unpaid tolls and stuck parcels are the most reported text scams. The fee is small on purpose — the goal is your card details, not the money.",
+      "severity": 0.5,
+      "markers": [
+        "unpaid toll",
+        "toll charges",
+        "outstanding toll",
+        "package could not be delivered",
+        "delivery attempt failed",
+        "update your delivery address",
+        "reschedule your delivery",
+        "small shipping fee",
+        "customs charge",
+        "your parcel is waiting",
+        "confirm your delivery details",
+        "redelivery fee",
+        "package is on hold"
+      ]
+    },
+    {
+      "id": "recovery_scam",
+      "title": "Offering to recover money you lost",
+      "explanation": "People who have already been defrauded are sold to other fraudsters as a list. Nobody who contacts you first can recover your money, and every fee they ask for is a second theft.",
+      "severity": 0.7,
+      "markers": [
+        "recover your funds",
+        "get your money back",
+        "we can recover",
+        "recovery fee",
+        "asset recovery",
+        "specialise in recovering",
+        "specialize in recovering",
+        "certified recovery",
+        "funds recovery service",
+        "we have located your funds"
       ]
     }
   ]

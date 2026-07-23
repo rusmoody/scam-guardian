@@ -1,32 +1,241 @@
 {
-  "note": "Размеченный корпус для оценки качества. flag = ожидаем предупреждение или блокировку, clean = ожидаем тишину. Каждый случай ложной тревоги или пропуска, найденный в реальном использовании, добавляется сюда ПЕРЕД правкой датасета — так видно, что правка помогла и ничего не сломала.",
+  "note": "Размеченный корпус для оценки качества. flag = ожидаем предупреждение или блокировку, clean = ожидаем тишину. Кейсы собраны из публикаций FTC, Action Fraud, Which?, отчётов Bitdefender и Trend Micro и из реального спама в мессенджерах. Каждый случай ложной тревоги или пропуска добавляется сюда ПЕРЕД правкой датасета — так видно, что правка помогла и ничего не сломала.",
   "license": "CC-BY-4.0",
   "cases": [
-    { "lang": "ru", "expect": "flag",  "text": "Служба безопасности банка. Счёт заблокирован, срочно переведите на безопасный счёт и продиктуйте код из смс." },
-    { "lang": "ru", "expect": "flag",  "text": "отдай деньги сука" },
-    { "lang": "ru", "expect": "flag",  "text": "Если не переведёшь до вечера — пожалеешь. Мы знаем где ты живёшь." },
-    { "lang": "ru", "expect": "flag",  "text": "Верни деньги или разошлю твои фото всем контактам" },
-    { "lang": "ru", "expect": "flag",  "text": "Здравствуйте, это единый расчетный центр. На ваше имя оформлен кредит. Не кладите трубку." },
-    { "lang": "ru", "expect": "flag",  "text": "Установите AnyDesk, я помогу отменить операцию. Оставайтесь на линии." },
-    { "lang": "ru", "expect": "flag",  "text": "Гарантированный доход 30% в месяц, инвестиции без риска" },
-    { "lang": "ru", "expect": "flag",  "text": "Для получения выигрыша оплатите комиссию 500 рублей" },
-    { "lang": "ru", "expect": "clean", "text": "Привет! Скинь адрес ресторана, я подъеду к семи." },
-    { "lang": "ru", "expect": "clean", "text": "Я отдам деньги завтра, как зарплата придёт" },
-    { "lang": "ru", "expect": "clean", "text": "Позвонили якобы из банка, я не повёлся — перезвонил сам по номеру с карты" },
-    { "lang": "ru", "expect": "clean", "text": "Мам, я записал тебя к врачу на вторник на 10 утра" },
-    { "lang": "ru", "expect": "clean", "text": "Давай скинемся на подарок Лёхе, по тысяче с человека?" },
-
-    { "lang": "en", "expect": "flag",  "text": "This is the fraud department. Your account has been suspended. Confirm the code we sent you and do not tell anyone." },
-    { "lang": "en", "expect": "flag",  "text": "Give me your money, bitch" },
-    { "lang": "en", "expect": "flag",  "text": "If you don't pay by tonight you will regret it. We know where you live." },
-    { "lang": "en", "expect": "flag",  "text": "Buy 4 Apple gift cards, scratch off the back and send me the code on the card. Keep this confidential." },
-    { "lang": "en", "expect": "flag",  "text": "Congratulations! Pay the processing fee to claim your prize." },
-    { "lang": "en", "expect": "flag",  "text": "Free airdrop! Connect your wallet to receive your tokens. Guaranteed returns." },
-    { "lang": "en", "expect": "flag",  "text": "I will leak your photos unless you pay me in bitcoin today" },
-    { "lang": "en", "expect": "clean", "text": "Hey, are we still on for lunch tomorrow? 1pm works for me." },
-    { "lang": "en", "expect": "clean", "text": "I'll send you the money for the tickets tonight, thanks for covering me" },
-    { "lang": "en", "expect": "clean", "text": "Mom asked me to help her set up the new phone this weekend" },
-    { "lang": "en", "expect": "clean", "text": "The bank called about suspicious activity but I hung up and called the number on my card instead" },
-    { "lang": "en", "expect": "clean", "text": "Can you pay me back for the pizza when you get a chance? No rush." }
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Служба безопасности банка. Счёт заблокирован, срочно переведите на безопасный счёт и продиктуйте код из смс."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "отдай деньги сука"
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Если не переведёшь до вечера — пожалеешь. Мы знаем где ты живёшь."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Верни деньги или разошлю твои фото всем контактам"
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Здравствуйте, это единый расчетный центр. На ваше имя оформлен кредит. Не кладите трубку."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Установите AnyDesk, я помогу отменить операцию. Оставайтесь на линии."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Гарантированный доход 30% в месяц, инвестиции без риска"
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Для получения выигрыша оплатите комиссию 500 рублей"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Привет! Скинь адрес ресторана, я подъеду к семи."
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Я отдам деньги завтра, как зарплата придёт"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Позвонили якобы из банка, я не повёлся — перезвонил сам по номеру с карты"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Мам, я записал тебя к врачу на вторник на 10 утра"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Давай скинемся на подарок Лёхе, по тысяче с человека?"
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "This is the fraud department. Your account has been suspended. Confirm the code we sent you and do not tell anyone."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Give me your money, bitch"
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "If you don't pay by tonight you will regret it. We know where you live."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Buy 4 Apple gift cards, scratch off the back and send me the code on the card. Keep this confidential."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Congratulations! Pay the processing fee to claim your prize."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Free airdrop! Connect your wallet to receive your tokens. Guaranteed returns."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "I will leak your photos unless you pay me in bitcoin today"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Hey, are we still on for lunch tomorrow? 1pm works for me."
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "I'll send you the money for the tickets tonight, thanks for covering me"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Mom asked me to help her set up the new phone this weekend"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "The bank called about suspicious activity but I hung up and called the number on my card instead"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Can you pay me back for the pizza when you get a chance? No rush."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "BOBBY LEAGUE LIVE. Week of Jun 1, final standings. This week's winner @QuietWyattEFT took the crown with 429 boosts. The podium: 429, 354, 348. 6,839 boosts logged across the network this week. See the full board. DM Bobby."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Итоги недели! Победитель недели — @user с 429 баллами. Таблица лидеров обновлена, топ участников смотрите на канале. Подробности в лс."
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Cool, just DM me your address when you get a chance and I'll post it out"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Nice, you're top of the leaderboard in our fantasy league this week"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Напиши в личку как освободишься, обсудим детали поездки"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Скинул в лс фотки с дня рождения, посмотри"
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Hello! We are hiring for part-time online work. Simple tasks like product boosting and rating product images. Daily commission, no experience required, free paid training. Reply YES if interested."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Здравствуйте! Удалённая подработка, нужно выполнять простые задания и ставить лайки. Ежедневный доход, не требует опыта. Напишите плюс в ответ."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Hi mum, I smashed my phone so this is my new number. Save this number and delete my old one. I'm in a bit of trouble, can you help me pay a bill today?"
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Мам, привет. Разбил телефон, пишу с чужого телефона, это мой новый номер. Сохрани новый номер. Срочно нужны деньги, потом всё объясню."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "USPS: your package could not be delivered due to an incomplete address. Please update your delivery address and pay a small shipping fee to reschedule your delivery."
+    },
+    {
+      "lang": "ru",
+      "expect": "flag",
+      "text": "Ваша посылка ожидает на складе. Заказ задержан на складе, уточните адрес доставки и оплатите хранение."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "We are a certified recovery firm and we have located your funds. We specialise in recovering money lost to fraud. A small recovery fee applies."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Hi! I think I have the wrong number, sorry. Long time no see though — do you remember me? We met at the conference last year."
+    },
+    {
+      "lang": "en",
+      "expect": "flag",
+      "text": "Your profit is ready. Pay the verification fee to withdraw and we will release your funds within the hour."
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Sorry, wrong number!"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "I lost my phone at the gym yesterday but someone handed it in, all good"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Did your Amazon order arrive yet? Mine came this morning"
+    },
+    {
+      "lang": "en",
+      "expect": "clean",
+      "text": "Long time no see! We should grab a coffee when you're back in town"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Мам, буду дома к семи. Купить что-нибудь по дороге?"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Ошибся номером, извини"
+    },
+    {
+      "lang": "ru",
+      "expect": "clean",
+      "text": "Заказ пришёл, забрал сегодня на почте, всё в порядке"
+    }
   ]
 }
