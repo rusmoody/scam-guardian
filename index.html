@@ -30,12 +30,16 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Масштаб текста. Аудитория — люди, которым мелкий шрифт мешает,
+   поэтому это управление, а не настройка в глубине меню. */
+html { font-size: calc(16px * var(--scale, 1)); }
+
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -63,6 +67,17 @@ body {
   color: var(--ink-soft); padding: 0.25rem 0.5rem; cursor: pointer;
 }
 .lang[aria-pressed="true"] { color: var(--ink); border-color: var(--rule); background: var(--surface); }
+
+.sizes { display: flex; gap: 0.25rem; align-items: baseline; }
+.size {
+  font-family: var(--sans); background: none; cursor: pointer;
+  border: 1px solid transparent; border-radius: 2px;
+  color: var(--ink-soft); line-height: 1; padding: 0.3rem 0.5rem;
+}
+.size--s { font-size: 0.8rem; }
+.size--m { font-size: 1rem; }
+.size--l { font-size: 1.2rem; }
+.size[aria-pressed="true"] { color: var(--ink); border-color: var(--rule); background: var(--surface); }
 .source {
   font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--ink-soft); text-decoration: none;
@@ -145,7 +160,7 @@ body {
 .mark {
   font: inherit; color: inherit; cursor: pointer;
   background: var(--mid-wash); border: none; border-bottom: 2px solid var(--mid);
-  border-radius: 2px 2px 0 0; padding: 0.1em 0.1em 0;
+  border-radius: 2px 2px 0 0; padding: 0.25em 0.15em 0.1em;
 }
 .mark--high { background: var(--high-wash); border-bottom-color: var(--high); }
 .mark--low  { background: #e9ecf1; border-bottom-color: var(--neutral); }
@@ -212,6 +227,11 @@ body {
   <header class="masthead">
     <h1 class="wordmark">Scam Guardian</h1>
     <div class="masthead__side">
+      <div class="sizes" id="sizes">
+        <button type="button" class="size size--s" data-scale="1" aria-pressed="true">A</button>
+        <button type="button" class="size size--m" data-scale="1.2" aria-pressed="false">A</button>
+        <button type="button" class="size size--l" data-scale="1.45" aria-pressed="false">A</button>
+      </div>
       <div class="langs">
         <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
         <button type="button" class="lang" data-lang="ru" aria-pressed="false">RU</button>

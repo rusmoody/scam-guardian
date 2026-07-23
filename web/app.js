@@ -38,6 +38,8 @@ const STRINGS = {
     reportsNote: 'appears in a known-reports list',
     privacy: 'Runs entirely in your browser. No requests, no logging, no account.',
     hint: 'Click a highlighted phrase to jump to its explanation.',
+    sizeLabel: 'Text size',
+    sizeNames: ['Normal text', 'Larger text', 'Largest text'],
   },
   ru: {
     tagline: 'Проверьте подозрительное сообщение, никуда его не отправляя.',
@@ -64,6 +66,8 @@ const STRINGS = {
     reportsNote: 'встречается в реестре жалоб',
     privacy: 'Работает полностью в браузере. Ни запросов, ни логов, ни аккаунта.',
     hint: 'Нажмите на подсвеченную фразу, чтобы перейти к объяснению.',
+    sizeLabel: 'Размер текста',
+    sizeNames: ['Обычный текст', 'Крупнее', 'Самый крупный'],
   },
 };
 
@@ -107,11 +111,25 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 
-async function loadLanguage(lang) {
-  if (!state.datasets[lang]) {
-    const response = await fetch(`/data/patterns_${lang}.json`);
-    state.datasets[lang] = await response.json();
-  }
+/**
+ * Оба языка загружаются сразу, а не по требованию.
+ *
+ * Вместе они весят 16 КБ, зато переключение языка больше никогда
+ * не обращается к сети — а офлайн это единственный режим, который
+ * обязан работать.
+ */
+async function loadDatasets() {
+  const langs = Object.keys(STRINGS);
+  const loaded = await Promise.all(langs.map(
+    (lang) => fetch(`/data/patterns_${lang}.json`).then((r) => {
+      if (!r.ok) throw new Error(`${lang}: ${r.status}`);
+      return r.json();
+    }),
+  ));
+  langs.forEach((lang, i) => { state.datasets[lang] = loaded[i]; });
+}
+
+function setLanguage(lang) {
   state.lang = lang;
   state.strings = STRINGS[lang];
   document.documentElement.lang = lang;
@@ -127,6 +145,30 @@ async function loadKnownBad() {
   } catch {
     state.knownBad = {};
   }
+}
+
+const SCALE_KEY = 'guardian.textScale';
+
+function applyScale(scale) {
+  document.documentElement.style.setProperty('--scale', String(scale));
+  try {
+    localStorage.setItem(SCALE_KEY, String(scale));
+  } catch {
+    // Приватный режим может запрещать хранилище — не повод падать.
+  }
+  for (const button of document.querySelectorAll('[data-scale]')) {
+    button.setAttribute('aria-pressed', String(button.dataset.scale === String(scale)));
+  }
+}
+
+function restoreScale() {
+  let saved = null;
+  try {
+    saved = localStorage.getItem(SCALE_KEY);
+  } catch {
+    saved = null;
+  }
+  applyScale(saved ? Number(saved) : 1);
 }
 
 function severityTier(severity) {
@@ -292,6 +334,12 @@ function paintStatic() {
   $('privacy').textContent = s.privacy;
   $('hint').textContent = s.hint;
 
+  $('sizes').setAttribute('aria-label', s.sizeLabel);
+  document.querySelectorAll('[data-scale]').forEach((button, i) => {
+    button.setAttribute('aria-label', s.sizeNames[i]);
+    button.setAttribute('title', s.sizeNames[i]);
+  });
+
   const box = $('examples');
   box.textContent = '';
   for (const example of EXAMPLES[state.lang]) {
@@ -307,8 +355,8 @@ function paintStatic() {
   }
 }
 
-async function switchLanguage(lang) {
-  await loadLanguage(lang);
+function switchLanguage(lang) {
+  setLanguage(lang);
   paintStatic();
   for (const button of document.querySelectorAll('[data-lang]')) {
     button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
@@ -318,8 +366,31 @@ async function switchLanguage(lang) {
 }
 
 async function init() {
-  await Promise.all([loadLanguage('en'), loadKnownBad()]);
+  try {
+    await Promise.all([loadDatasets(), loadKnownBad()]);
+  } catch (error) {
+    $('status').textContent =
+      'Could not load the pattern data. Reload the page once while online.';
+    $('check').disabled = true;
+    return;
+  }
+  setLanguage('en');
+  restoreScale();
   paintStatic();
+
+  for (const button of document.querySelectorAll('[data-scale]')) {
+    button.addEventListener('click', () => applyScale(Number(button.dataset.scale)));
+  }
+
+  // Текст, пришедший из системного меню «Поделиться».
+  // Проверяем сразу — человек уже сделал выбор, второй клик лишний.
+  const shared = new URLSearchParams(location.search).get('text');
+  if (shared) {
+    $('input').value = shared;
+    history.replaceState(null, '', location.pathname);
+    run();
+  }
+
   $('check').addEventListener('click', run);
   $('input').addEventListener('keydown', (event) => {
     if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) run();

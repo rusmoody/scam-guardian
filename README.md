@@ -52,6 +52,21 @@ signal and a cheap handset; a defence that needs connectivity is missing exactly
 when it is needed. It also means the privacy claim holds in the strongest
 possible form: with the network off, the analysis still works.
 
+## Getting a message into it
+
+On a phone with the app installed, the fastest path is the system share sheet:
+select the message anywhere, **Share → Guardian**, and the check runs on arrival.
+No copying, no switching apps first.
+
+Otherwise: paste it, or forward it to the Telegram bot.
+
+Calls are deliberately not handled automatically, and this is a limit worth
+stating plainly rather than working around. Android has blocked third-party
+access to call audio since version 10, and Google Play bans the accessibility
+workaround. More importantly, a dozen US states require the consent of every
+party to a recording, and the recording never leaving the device does not change
+that. Paste what was said instead.
+
 ## What it does
 
 1. Pulls out what can be checked — links, domains, wallet addresses, phone numbers.
@@ -88,6 +103,15 @@ manipulation and *what to do now* — the numbers stay in a technical detail pan
 for developers.
 
 ---
+
+## Accessibility
+
+Text size is a control in the header, not a setting buried in a menu — the people
+most targeted by these scams are frequently the people who find small type hard to
+read. The choice is remembered between visits.
+
+There is no green anywhere in the interface. Green reads as "safe", and this tool
+never says that.
 
 ## Datasets
 
