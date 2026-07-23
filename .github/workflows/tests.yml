@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  bot:
+    name: bot (python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: install the engine
+        run: pip install "guardrails-core @ git+https://github.com/rusmoody/guardrails-core.git"
+      - name: run tests
+        run: python -m unittest discover -s tests -v
+
+  calibration:
+    name: calibration (evals)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Проваливается при пропущенном скаме или ложной тревоге,
+      # так что калибровка не может тихо испортиться.
+      - run: node eval.mjs
