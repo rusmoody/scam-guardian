@@ -1,0 +1,32 @@
+{
+  "note": "Размеченный корпус для оценки качества. flag = ожидаем предупреждение или блокировку, clean = ожидаем тишину. Каждый случай ложной тревоги или пропуска, найденный в реальном использовании, добавляется сюда ПЕРЕД правкой датасета — так видно, что правка помогла и ничего не сломала.",
+  "license": "CC-BY-4.0",
+  "cases": [
+    { "lang": "ru", "expect": "flag",  "text": "Служба безопасности банка. Счёт заблокирован, срочно переведите на безопасный счёт и продиктуйте код из смс." },
+    { "lang": "ru", "expect": "flag",  "text": "отдай деньги сука" },
+    { "lang": "ru", "expect": "flag",  "text": "Если не переведёшь до вечера — пожалеешь. Мы знаем где ты живёшь." },
+    { "lang": "ru", "expect": "flag",  "text": "Верни деньги или разошлю твои фото всем контактам" },
+    { "lang": "ru", "expect": "flag",  "text": "Здравствуйте, это единый расчетный центр. На ваше имя оформлен кредит. Не кладите трубку." },
+    { "lang": "ru", "expect": "flag",  "text": "Установите AnyDesk, я помогу отменить операцию. Оставайтесь на линии." },
+    { "lang": "ru", "expect": "flag",  "text": "Гарантированный доход 30% в месяц, инвестиции без риска" },
+    { "lang": "ru", "expect": "flag",  "text": "Для получения выигрыша оплатите комиссию 500 рублей" },
+    { "lang": "ru", "expect": "clean", "text": "Привет! Скинь адрес ресторана, я подъеду к семи." },
+    { "lang": "ru", "expect": "clean", "text": "Я отдам деньги завтра, как зарплата придёт" },
+    { "lang": "ru", "expect": "clean", "text": "Позвонили якобы из банка, я не повёлся — перезвонил сам по номеру с карты" },
+    { "lang": "ru", "expect": "clean", "text": "Мам, я записал тебя к врачу на вторник на 10 утра" },
+    { "lang": "ru", "expect": "clean", "text": "Давай скинемся на подарок Лёхе, по тысяче с человека?" },
+
+    { "lang": "en", "expect": "flag",  "text": "This is the fraud department. Your account has been suspended. Confirm the code we sent you and do not tell anyone." },
+    { "lang": "en", "expect": "flag",  "text": "Give me your money, bitch" },
+    { "lang": "en", "expect": "flag",  "text": "If you don't pay by tonight you will regret it. We know where you live." },
+    { "lang": "en", "expect": "flag",  "text": "Buy 4 Apple gift cards, scratch off the back and send me the code on the card. Keep this confidential." },
+    { "lang": "en", "expect": "flag",  "text": "Congratulations! Pay the processing fee to claim your prize." },
+    { "lang": "en", "expect": "flag",  "text": "Free airdrop! Connect your wallet to receive your tokens. Guaranteed returns." },
+    { "lang": "en", "expect": "flag",  "text": "I will leak your photos unless you pay me in bitcoin today" },
+    { "lang": "en", "expect": "clean", "text": "Hey, are we still on for lunch tomorrow? 1pm works for me." },
+    { "lang": "en", "expect": "clean", "text": "I'll send you the money for the tickets tonight, thanks for covering me" },
+    { "lang": "en", "expect": "clean", "text": "Mom asked me to help her set up the new phone this weekend" },
+    { "lang": "en", "expect": "clean", "text": "The bank called about suspicious activity but I hung up and called the number on my card instead" },
+    { "lang": "en", "expect": "clean", "text": "Can you pay me back for the pizza when you get a chance? No rush." }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "language": "en",
+  "version": "0.1.0",
+  "license": "CC-BY-4.0",
+  "note": "Social-engineering markers observed in English-language scams. Authored for English, not translated from another language — the tactics that dominate differ by region (gift cards and wire transfers here, 'safe account' transfers in Russian-language fraud). Severity is a contribution to the overall picture, not a verdict. Additions welcome by pull request.",
+  "groups": [
+    {
+      "id": "authority_impersonation",
+      "title": "Claiming to be an institution",
+      "explanation": "The sender claims to represent a bank, tax office, or law enforcement. Real institutions do not open these conversations by message or cold call.",
+      "severity": 0.55,
+      "markers": [
+        "fraud department",
+        "fraud prevention team",
+        "security department",
+        "account security team",
+        "this is the irs",
+        "internal revenue service",
+        "hmrc",
+        "social security administration",
+        "your social security number has been suspended",
+        "federal agent",
+        "warrant for your arrest",
+        "microsoft support",
+        "apple support team",
+        "amazon security"
+      ]
+    },
+    {
+      "id": "credentials",
+      "title": "Asking for codes or keys",
+      "explanation": "One-time codes, card security numbers, and recovery phrases are never requested by anyone legitimate. Anyone asking is trying to take the account.",
+      "severity": 0.8,
+      "markers": [
+        "one-time code",
+        "one time passcode",
+        "read me the code",
+        "confirm the code",
+        "verification code we sent",
+        "otp",
+        "cvv",
+        "security code on the back",
+        "seed phrase",
+        "recovery phrase",
+        "private key",
+        "wallet passphrase",
+        "your password to verify",
+        "2fa code"
+      ]
+    },
+    {
+      "id": "gift_cards",
+      "title": "Asking for gift cards",
+      "explanation": "No government agency, utility, or employer accepts gift cards as payment. A request for gift card numbers is fraud with no legitimate exception.",
+      "severity": 0.85,
+      "markers": [
+        "gift card",
+        "gift cards",
+        "google play card",
+        "apple gift",
+        "itunes card",
+        "steam card",
+        "scratch off the back",
+        "send me the code on the card",
+        "photo of the card"
+      ]
+    },
+    {
+      "id": "irreversible_payment",
+      "title": "Pushing an irreversible payment method",
+      "explanation": "Wire transfers, crypto, and peer-to-peer apps cannot be reversed once sent. Scams steer toward them for exactly that reason.",
+      "severity": 0.6,
+      "markers": [
+        "wire transfer",
+        "western union",
+        "moneygram",
+        "zelle",
+        "cash app",
+        "venmo me",
+        "bitcoin atm",
+        "send usdt",
+        "pay in crypto",
+        "bank transfer only",
+        "no refunds possible"
+      ]
+    },
+    {
+      "id": "secrecy",
+      "title": "Telling you to keep it quiet",
+      "explanation": "Being asked to keep something from family, colleagues, or bank staff is isolation. It exists to remove the people who would stop this.",
+      "severity": 0.7,
+      "markers": [
+        "do not tell anyone",
+        "don't tell anyone",
+        "keep this confidential",
+        "do not discuss this with",
+        "don't tell the bank",
+        "do not tell the teller",
+        "stay on the line",
+        "do not hang up",
+        "this is a confidential investigation",
+        "between you and me"
+      ]
+    },
+    {
+      "id": "urgency",
+      "title": "Rushing you",
+      "explanation": "Pressure exists to stop you from checking. A real request survives a night's sleep and a second opinion.",
+      "severity": 0.3,
+      "markers": [
+        "act now",
+        "immediately",
+        "within the hour",
+        "right now or",
+        "final notice",
+        "last warning",
+        "expires today",
+        "only a few minutes left",
+        "before it's too late"
+      ]
+    },
+    {
+      "id": "account_threat",
+      "title": "Threatening your account or freedom",
+      "explanation": "Fear of loss shuts down careful thinking. That is the point of the threat.",
+      "severity": 0.45,
+      "markers": [
+        "your account has been suspended",
+        "account will be closed",
+        "unauthorized transaction",
+        "suspicious activity detected",
+        "unusual sign-in",
+        "your card has been blocked",
+        "legal action will be taken",
+        "you will be arrested"
+      ]
+    },
+    {
+      "id": "advance_fee",
+      "title": "Asking you to pay first",
+      "explanation": "A fee, tax, or deposit required before you receive money is a standard scam shape. Real payouts do not require you to send money first.",
+      "severity": 0.6,
+      "markers": [
+        "processing fee",
+        "release fee",
+        "customs fee",
+        "clearance fee",
+        "pay the tax first",
+        "small deposit to unlock",
+        "insurance payment required",
+        "cover the shipping cost",
+        "to claim your prize"
+      ]
+    },
+    {
+      "id": "unrealistic_return",
+      "title": "Promising returns without risk",
+      "explanation": "Guaranteed returns do not exist. The more specific the promise, the more likely the scheme.",
+      "severity": 0.6,
+      "markers": [
+        "guaranteed returns",
+        "guaranteed profit",
+        "risk-free investment",
+        "double your money",
+        "10x your",
+        "passive income guaranteed",
+        "free airdrop",
+        "claim your tokens",
+        "verify your wallet",
+        "connect your wallet to receive",
+        "sync your wallet",
+        "validate your wallet"
+      ]
+    },
+    {
+      "id": "remote_access",
+      "title": "Asking you to install software",
+      "explanation": "Remote access tools hand over full control of the device, including banking apps. Support you did not call for never needs this.",
+      "severity": 0.65,
+      "markers": [
+        "anydesk",
+        "teamviewer",
+        "ultraviewer",
+        "quick assist",
+        "install this app so i can",
+        "remote access",
+        "share your screen",
+        "download this software to fix"
+      ]
+    },
+    {
+      "id": "overpayment",
+      "title": "Overpayment or refund reversal",
+      "explanation": "Being told you were overpaid and asked to return the difference is a classic setup — the original payment is later reversed and you lose both.",
+      "severity": 0.6,
+      "markers": [
+        "we accidentally sent you",
+        "overpaid you",
+        "sent too much",
+        "return the difference",
+        "refund the extra",
+        "we refunded you by mistake"
+      ]
+    },
+    {
+      "id": "extortion",
+      "title": "Demanding money or making threats",
+      "explanation": "A demand for money backed by a threat or insult is extortion. Do not reply, and keep the messages — they may be needed as evidence.",
+      "severity": 0.6,
+      "markers": [
+        "give me your money",
+        "give me the money",
+        "send me the money",
+        "send me money now",
+        "hand over the money",
+        "pay up",
+        "or else",
+        "you will regret",
+        "you'll regret",
+        "we know where you live",
+        "i know where you live",
+        "if you don't pay",
+        "if you do not pay",
+        "i will leak",
+        "i'll leak your",
+        "i will share your photos",
+        "unless you pay"
+      ]
+    }
+  ]
+}
