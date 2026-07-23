@@ -328,6 +328,14 @@ async function init() {
     button.addEventListener('click', () => switchLanguage(button.dataset.lang));
   }
   document.querySelector('[data-lang="en"]').setAttribute('aria-pressed', 'true');
+
+  // Офлайн-режим. Регистрация не влияет на первую загрузку:
+  // всё нужное уже здесь, воркер лишь готовит следующий визит.
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      // Локально по file:// воркеры недоступны — это нормально.
+    });
+  }
 }
 
 init();

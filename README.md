@@ -41,6 +41,17 @@ records the decision and the kinds of artifacts found, never the text.
 
 ---
 
+## Works with no network at all
+
+The page installs to a phone's home screen as a progressive web app and runs
+**fully offline** after the first visit — the engine, both datasets, and the
+interface add up to a few dozen kilobytes with no model to download.
+
+This is not an optimisation. Someone being pressured on a call may have a weak
+signal and a cheap handset; a defence that needs connectivity is missing exactly
+when it is needed. It also means the privacy claim holds in the strongest
+possible form: with the network off, the analysis still works.
+
 ## What it does
 
 1. Pulls out what can be checked — links, domains, wallet addresses, phone numbers.
@@ -48,6 +59,17 @@ records the decision and the kinds of artifacts found, never the text.
 3. Highlights the matching phrases **inside the message itself**, so you can see
    which words are doing the manipulating.
 4. Explains what to do next.
+
+## Works with no network at all
+
+The page installs to a phone's home screen as a progressive web app and runs
+**fully offline** after the first visit — the engine, both datasets, and the
+interface add up to a few dozen kilobytes with no model to download.
+
+This is not an optimisation. Someone being pressured on a call may have a weak
+signal and a cheap handset; a defence that needs connectivity is missing exactly
+when it is needed. It also means the privacy claim holds in the strongest
+possible form: with the network off, the analysis still works.
 
 ## What it does not do
 
